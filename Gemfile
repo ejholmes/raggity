@@ -5,9 +5,10 @@ gem 'jquery-rails'
 gem 'sqlite3-ruby', '1.2.5', :require => 'sqlite3'
 gem 'grit'
 
+group :development do
+  gem 'vagrant'
+end
 
-# Gems used only for assets and not required
-# in production environments by default.
 group :assets do
   gem 'sass-rails',   '~> 3.1.5'
   gem 'coffee-rails', '~> 3.1.1'
