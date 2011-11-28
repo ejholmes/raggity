@@ -12,4 +12,7 @@ Vagrant::Config.run do |config|
 
   # Boot with a GUI so you can see the screen. (Default is headless)
   # config.vm.boot_mode = :gui
+  
+  config.vm.forward_port "rails", 3000, 3000
+  config.vm.share_folder("station", "/station", ".", :owner => "git", :group => "git")
 end
