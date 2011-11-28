@@ -6,7 +6,7 @@ gem 'sqlite3-ruby', '1.2.5', :require => 'sqlite3'
 gem 'grit'
 
 group :development do
-  gem 'vagrant', '0.8.7'
+  gem 'vagrant', :git => "git://github.com/mitchellh/vagrant.git"
 end
 
 group :assets do
