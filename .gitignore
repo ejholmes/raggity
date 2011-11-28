@@ -7,6 +7,9 @@
 # Ignore bundler config
 /.bundle
 
+# Ignore vagrant box
+/.vagrant
+
 # Ignore the default SQLite database.
 /db/*.sqlite3
 
