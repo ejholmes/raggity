@@ -6,6 +6,8 @@ gem 'sqlite3'
 gem 'grit'
 gem 'therubyracer'
 
+gem 'rspec-rails', :group => [:development, :test]
+
 group :development do
   gem 'vagrant', :git => "git://github.com/mitchellh/vagrant.git"
 end
@@ -17,5 +19,6 @@ group :assets do
 end
 
 group :test do
-  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'capybara'
 end
