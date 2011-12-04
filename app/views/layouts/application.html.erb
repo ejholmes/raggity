@@ -8,18 +8,25 @@
 </head>
 <body>
 
-  <section id="alerts">
-    <% flash.each do |name, msg| %>
-      <%= content_tag :div, msg, :class => "#{name}" if msg.is_a?(String) %>
-    <% end %>
-  </section>
-
   <section id="user">
     <% if user_signed_in? %>
       <%= gravatar_image_tag(current_user.email, :alt => current_user.email) %>
       Signed in as <%= current_user.email %>
     <% end %>
   </section>
+
+  <nav>
+    <span>Dashboard</span>
+    <span>Repositories</span>
+    <span>Issues</span>
+  </nav>
+
+  <section id="alerts">
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, :class => "#{name}" if msg.is_a?(String) %>
+    <% end %>
+  </section>
+
 
   <%= yield %>
 
