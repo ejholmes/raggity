@@ -14,7 +14,7 @@ When /^I click "([^"]*)"$/ do |button_or_link|
 end
 
 Then /^I should be logged in$/ do
-  page.should have_content("Welcome")
+  page.should have_content("Signed in successfully")
 end
 
 Then /^I should see "([^"]*)"$/ do |text|

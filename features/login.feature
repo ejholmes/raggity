@@ -4,25 +4,31 @@ Feature:
   I want to be able to login
 
   Scenario: A user visits the home page and logs in
-    Given I am an unauthenticated user
+    Given the following user exists:
+      | email         | password |
+      | alice@foo.com | password |
     When I visit the home page
-    And I fill in "username" with "alice@foo.com"
-    And I fill in "password" with "password"
-    And I click "sign in"
+    And I fill in "Email" with "alice@foo.com"
+    And I fill in "Password" with "password"
+    And I click "Sign in"
     Then I should be logged in
 
   Scenario: A user visits the home page and attempts to login with a bad password
-    Given I am an unauthenticated user
+    Given the following user exists:
+      | email         | password |
+      | alice@foo.com | password |
     When I visit the home page
-    And I fill in "username" with "alice@foo.com"
-    And I fill in "password" with "passwd"
-    And I click "sign in"
-    Then I should see "invalid username or password"
+    And I fill in "Email" with "alice@foo.com"
+    And I fill in "Password" with "passwd"
+    And I click "Sign in"
+    Then I should see "Invalid email or password"
 
   Scenario: A user visits the home page and attempts to login with a bad username
-    Given I am an unauthenticated user
+    Given the following user exists:
+      | email         | password |
+      | alice@foo.com | password |
     When I visit the home page
-    And I fill in "username" with "alce@foo.com"
-    And I fill in "password" with "password"
-    And I click "sign in"
-    Then I should see "invalid username or password"
+    And I fill in "Email" with "alce@foo.com"
+    And I fill in "Password" with "password"
+    And I click "Sign in"
+    Then I should see "Invalid email or password"

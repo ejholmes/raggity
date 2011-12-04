@@ -5,6 +5,7 @@ gem 'jquery-rails'
 gem 'sqlite3'
 gem 'grit'
 gem 'devise'
+gem 'formtastic'
 gem 'therubyracer'
 
 gem 'rspec-rails', :group => [:development, :test]
