@@ -92,6 +92,7 @@ GEM
       rails (~> 3.0)
     gherkin (2.6.9)
       json (>= 1.4.6)
+    gravatar_image_tag (1.0.0)
     grit (2.4.1)
       diff-lcs (~> 1.1)
       mime-types (~> 1.15)
@@ -202,6 +203,7 @@ DEPENDENCIES
   devise
   factory_girl_rails
   formtastic
+  gravatar_image_tag
   grit
   jquery-rails
   rails (= 3.1.3)

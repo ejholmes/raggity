@@ -14,6 +14,13 @@
     <% end %>
   </section>
 
+  <section id="user">
+    <% if user_signed_in? %>
+      <%= gravatar_image_tag(current_user.email, :alt => current_user.email) %>
+      Signed in as <%= current_user.email %>
+    <% end %>
+  </section>
+
   <%= yield %>
 
 </body>

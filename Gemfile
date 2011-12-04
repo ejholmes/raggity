@@ -6,6 +6,7 @@ gem 'sqlite3'
 gem 'grit'
 gem 'devise'
 gem 'formtastic'
+gem 'gravatar_image_tag'
 gem 'therubyracer'
 
 gem 'rspec-rails', :group => [:development, :test]
