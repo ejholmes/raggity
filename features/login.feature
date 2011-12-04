@@ -8,7 +8,7 @@ Feature:
     When I visit the home page
     And I fill in "username" with "alice@foo.com"
     And I fill in "password" with "password"
-    And I click "login"
+    And I click "sign in"
     Then I should be logged in
 
   Scenario: A user visits the home page and attempts to login with a bad password
@@ -16,7 +16,7 @@ Feature:
     When I visit the home page
     And I fill in "username" with "alice@foo.com"
     And I fill in "password" with "passwd"
-    And I click "login"
+    And I click "sign in"
     Then I should see "invalid username or password"
 
   Scenario: A user visits the home page and attempts to login with a bad username
@@ -24,5 +24,5 @@ Feature:
     When I visit the home page
     And I fill in "username" with "alce@foo.com"
     And I fill in "password" with "password"
-    And I click "login"
+    And I click "sign in"
     Then I should see "invalid username or password"

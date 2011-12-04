@@ -44,5 +44,8 @@ module Station
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    # Default url for action mailer
+    config.action_mailer.default_url_options = { :host => 'localhost:3000' }
   end
 end
