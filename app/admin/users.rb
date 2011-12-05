@@ -1,4 +1,5 @@
 ActiveAdmin.register User do
+  menu :parent => "Users"
 
   index do
     column :email
