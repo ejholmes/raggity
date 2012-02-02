@@ -1,0 +1,1 @@
+require 'raggity/frontend/raggity'

@@ -1,4 +1,4 @@
-require "station/version"
+require "raggity/version"
 
 module Raggity
   # Your code goes here...

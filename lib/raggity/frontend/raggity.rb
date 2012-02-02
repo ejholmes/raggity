@@ -1,16 +1,20 @@
-require 'raggit'
+require 'raggity'
 require 'sinatra'
 require 'mustache/sinatra'
 
-module Station
-  class App < Sinatra::Base
+module Raggity
+  class Application < Sinatra::Base
 
-    get '/repositores' do
-      # list repositories
+    # List repositories
+    get '/' do
     end
 
-    get '/browse/:repo/:ref/:branch/*' do
-      # show blob or tree
+    # Browse a tree or blob
+    get %r{/browse/(.*?)/(blob|tree|)/(\w+)/?(.*)} do
+      name = params[:captures][0]
+      type = params[:captures][1]
+      ref  = params[:captures][2]
+      path = params[:captures][3]
     end
 
   end
