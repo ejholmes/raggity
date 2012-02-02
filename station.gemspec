@@ -7,9 +7,9 @@ Gem::Specification.new do |s|
   s.version     = Station::VERSION
   s.authors     = ["Eric J. Holmes"]
   s.email       = ["eric@ejholmes.net"]
-  s.homepage    = ""
-  s.summary     = %q{TODO: Write a gem summary}
-  s.description = %q{TODO: Write a gem description}
+  s.homepage    = "https://github.com/ejholmes/station"
+  s.summary     = %q{A Git repository browser}
+  s.description = %q{Station is a Git repository browser similar to gitweb and cgit}
 
   s.rubyforge_project = "station"
 
@@ -19,7 +19,10 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   s.add_dependency "sinatra"
+  s.add_dependency "grit"
+  s.add_dependency "github-markup"
+  s.add_dependency "mustache"
 
   s.add_development_dependency "rspec"
-  # s.add_runtime_dependency "rest-client"
+  s.add_development_dependency "rake"
 end
