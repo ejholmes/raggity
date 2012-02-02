@@ -1,0 +1,7 @@
+<% @tree.contents.each do |obj| %>
+    <% if obj.is_a?(Grit::Blob) %>
+        <a href="<%= blob_path(obj) %>"><%= obj.name %></a>
+    <% else %>
+        <a href="<%= tree_path(obj) %>"><%= obj.name %></a>
+    <% end %>
+<% end %>

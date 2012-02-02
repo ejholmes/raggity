@@ -1,5 +1,2 @@
-require "raggity/version"
-
-module Raggity
-  # Your code goes here...
-end
+require 'raggity/version'
+require 'raggity/repo.rb'

@@ -1,1 +1,1 @@
-require 'raggity/frontend/raggity'
+require 'raggity/frontend/app'
