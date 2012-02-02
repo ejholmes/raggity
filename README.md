@@ -6,11 +6,10 @@ small business is prohibitive. The goal of Raggity is to fill this
 gap; offering a powerful web interface to gitolite that can be hosted
 within your own network.
 
-Raggity is a Sinatra app for serving and browsing git repositores. It
-is similar in nature to cgit, however it's far more than just a front
-end.
+Raggity is a Sinatra app for browsing git repositores. It is similar
+in nature to cgit, but with GitHub like features.
 
-Raggity is heavily influenced by [Github](http://github.com),
+Raggity is heavily influenced by [GitHub](http://github.com),
 [Gitolite](https://github.com/sitaramc/gitolite) and
 [cgit](http://hjemli.net/git/cgit/).
 
