@@ -1,16 +1,33 @@
 <%= erb :branches %>
 <%= erb :breadcrumbs %>
-<ul>
-<% @tree.contents.each do |obj| %>
-    <li>
-    <% if obj.is_a?(Grit::Blob) %>
-        <a href="<%= blob_path(obj) %>"><%= obj.name %></a>
-    <% else %>
-        <a href="<%= tree_path(obj) %>"><%= obj.name %></a>/
-    <% end %>
-    </li>
-<% end %>
-</ul>
-<div class="readme">
+<div class="bubble">
+    <table class="tree-browser">
+        <thead>
+            <tr class="header">
+                <th></th>
+                <th>name</th>
+                <th>age</th>
+                <th>message</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @tree.contents.each do |obj| %>
+            <tr>
+                <td></td>
+                <td>
+                    <% if obj.is_a?(Grit::Blob) %>
+                        <a href="<%= blob_path(obj) %>"><%= obj.name %></a>
+                    <% else %>
+                        <a href="<%= tree_path(obj) %>"><%= obj.name %></a>/
+                    <% end %>
+                </td>
+                <td></td>
+                <td></td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>
+<div class="bubble readme">
 <%= readme(@tree.contents) %>
 </div>
