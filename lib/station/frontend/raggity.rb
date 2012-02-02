@@ -1,4 +1,4 @@
-require 'station'
+require 'raggit'
 require 'sinatra'
 require 'mustache/sinatra'
 

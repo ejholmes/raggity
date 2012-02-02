@@ -1,5 +1,5 @@
 require "station/version"
 
-module Station
+module Raggity
   # Your code goes here...
 end

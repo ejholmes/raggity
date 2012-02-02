@@ -1,17 +1,17 @@
 # -*- encoding: utf-8 -*-
 $:.push File.expand_path("../lib", __FILE__)
-require "station/version"
+require "raggity/version"
 
 Gem::Specification.new do |s|
-  s.name        = "station"
-  s.version     = Station::VERSION
+  s.name        = "raggity"
+  s.version     = Raggity::VERSION
   s.authors     = ["Eric J. Holmes"]
   s.email       = ["eric@ejholmes.net"]
-  s.homepage    = "https://github.com/ejholmes/station"
+  s.homepage    = "https://github.com/ejholmes/raggity"
   s.summary     = %q{A Git repository browser}
-  s.description = %q{Station is a Git repository browser similar to gitweb and cgit}
+  s.description = %q{Raggity is a Git repository browser similar to gitweb and cgit}
 
-  s.rubyforge_project = "station"
+  s.rubyforge_project = "raggity"
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
