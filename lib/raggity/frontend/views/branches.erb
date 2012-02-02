@@ -1,0 +1,5 @@
+<div class="branches">
+    <% @repo.branches.each do |branch| %>
+        <a href="<%= object_path(:ref => branch.name) %>"><%= branch.name %></a>
+    <% end %>
+<div>

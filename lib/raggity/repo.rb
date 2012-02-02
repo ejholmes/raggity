@@ -34,6 +34,14 @@ module Raggity
     def blob(path)
       blob = @repo.commits(@ref).first.tree / path
     end
+
+    def branches
+      @repo.heads
+    end
+
+    def tags
+      @repo.tags
+    end
   end
 
 end

@@ -1,0 +1,8 @@
+<div class="breadcrumbs">
+    <a href="<%= root_path %>"><%= @name %></a> /
+    <% path = [] %>
+    <% @path.split('/').tap { |p| p.pop }.each do |crumb| %>
+        <% path.push(crumb) %>
+        <a href="<%= object_path(:type => :tree, :path => path.join('/')) %>"><%= crumb %></a> /
+    <% end %>
+</div>

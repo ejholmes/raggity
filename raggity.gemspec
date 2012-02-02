@@ -21,6 +21,7 @@ Gem::Specification.new do |s|
   s.add_dependency "sinatra"
   s.add_dependency "grit"
   s.add_dependency "github-markup"
+  s.add_dependency "redcarpet"
   s.add_dependency "mustache"
   s.add_dependency "pygments.rb"
 

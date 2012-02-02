@@ -1,7 +1,16 @@
+<%= erb :branches %>
+<%= erb :breadcrumbs %>
+<ul>
 <% @tree.contents.each do |obj| %>
+    <li>
     <% if obj.is_a?(Grit::Blob) %>
         <a href="<%= blob_path(obj) %>"><%= obj.name %></a>
     <% else %>
-        <a href="<%= tree_path(obj) %>"><%= obj.name %></a>
+        <a href="<%= tree_path(obj) %>"><%= obj.name %></a>/
     <% end %>
+    </li>
 <% end %>
+</ul>
+<div class="readme">
+<%= readme(@tree.contents) %>
+</div>
