@@ -1,1 +1,4 @@
-<%= @blob.data %>
+<%= @blob.name %>
+<div class="highlight">
+    <pre><%= Pygments.highlight(@blob.data, :lexer => 'ruby') %></pre>
+</div>

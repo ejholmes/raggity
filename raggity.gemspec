@@ -22,6 +22,7 @@ Gem::Specification.new do |s|
   s.add_dependency "grit"
   s.add_dependency "github-markup"
   s.add_dependency "mustache"
+  s.add_dependency "pygments.rb"
 
   s.add_development_dependency "rspec"
   s.add_development_dependency "rake"

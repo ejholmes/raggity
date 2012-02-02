@@ -1,5 +1,7 @@
 require 'raggity'
 require 'sinatra'
+require 'github/markup'
+require 'pygments'
 
 module Raggity
   class Application < Sinatra::Base
@@ -7,7 +9,8 @@ module Raggity
 
     # List repositories
     get '/' do
-      "ok"
+      @repos = Raggity.list_repos
+      erb :index
     end
 
     # Browse a tree or blob
@@ -19,10 +22,11 @@ module Raggity
 
       repo = Raggity::Repo.new @name, @ref
 
+
       case @type
       when :tree
-        # return escape_html repo.tree(path).inspect
         @tree = repo.tree(@path)
+        return erb :bare if @tree.nil?
         erb :tree
       when :blob
         @blob = repo.blob(@path)
@@ -31,12 +35,20 @@ module Raggity
     end
 
     helpers do
+      def repo_path(repo, ref='master')
+        "/browse/#{repo}/tree/#{ref}"
+      end
+
       def tree_path(tree)
-        "hello"
+        "/browse/#{@name}/tree/#{@ref}/#{@path}#{tree.name}"
       end
 
       def blob_path(blob)
-        "/browse/#{@name}/blob/#{@ref}/#{@path}#{blob.name}"
+        if @path == ''
+          "/browse/#{@name}/blob/#{@ref}/#{blob.name}"
+        else
+          "/browse/#{@name}/blob/#{@ref}/#{@path}/#{blob.name}"
+        end
       end
     end
 

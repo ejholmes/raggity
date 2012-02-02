@@ -1,6 +1,17 @@
 require 'grit'
 
 module Raggity
+
+  class << self
+    def list_repos
+      repos = []
+      Dir.glob("spec/fixtures/repositories/*") do |directory|
+        repos.push(File.basename(directory).gsub('.git', ''))
+      end
+      repos
+    end
+  end
+
   class Repo
     attr_reader :repo
 
@@ -11,10 +22,12 @@ module Raggity
     end
 
     def tree(path)
+      commit = @repo.commits(@ref).first
+      return nil if commit.nil?
       if path == ''
-        return @repo.commits(@ref).first.tree
+        return commit.tree
       else
-        return @repo.commits(@ref).first.tree / path
+        return commit.tree / path
       end
     end
 
@@ -22,4 +35,5 @@ module Raggity
       blob = @repo.commits(@ref).first.tree / path
     end
   end
+
 end
