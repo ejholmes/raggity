@@ -15,9 +15,7 @@ Station is heavily influenced by [Github](http://github.com),
 [cgit](http://hjemli.net/git/cgit/).
 
 ## Installation
-```bash
-$ gem install station
-```
+**TODO**
 
 ## Authors
 [Eric Holmes](mailto:eric@ejholmes.net)
