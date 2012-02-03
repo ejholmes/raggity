@@ -1,3 +1,27 @@
+body {
+    font: 13px Helvetica, Arial, Freesans, sans-serif;
+    line-height: 1.4em;
+    color: #333;
+}
+
+a {
+    color: #4183c4;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+#container {
+    width: 920px;
+    margin: 0 auto;
+}
+
+.bubble {
+    margin: 1em 0;
+}
+
 .bubble {
     padding: 3px;
     background: #eee;
@@ -17,10 +41,50 @@
     -webkit-border-radius: 3px;
 }
 
+.tree-browser th {
+    text-align: left;
+    font-weight: bold;
+    color: #555;
+    padding: 6px 3px;
+    text-shadow: 0 1px 0 #fff;
+    border-bottom: 1px solid #d8d8d8;
+
+    background-color:#fafafa;
+    background:-moz-linear-gradient(#fafafa,#eaeaea);
+    background:-ms-linear-gradient(#fafafa,#eaeaea);
+    background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#fafafa),color-stop(100%,#eaeaea));
+    background:-webkit-linear-gradient(#fafafa,#eaeaea);
+    background:-o-linear-gradient(#fafafa,#eaeaea);
+    -ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr='#fafafa',endColorstr='#eaeaea')";
+    background:linear-gradient(#fafafa,#eaeaea);
+}
+
+.tree-browser td {
+    background: #f8f8f8;
+    border-bottom: 1px solid #eee;
+    padding: 7px 3px;
+    color: #484848;
+    vertical-align: middle;
+    margin: 0;
+}
+
+.tree-browser td.icon {
+    width: 17px;
+    padding-right: 2px;
+    padding-left: 10px;
+}
+
+.file {
+    padding: 1em;
+    border: 1px solid #cacaca;
+    background: #fff;
+}
+
 pre {
     font-family: 'Bitstream Vera Sans Mono', 'monospace';
     font-size: 12px;
     line-height: 1.4em;
+    margin: 0;
 }
 
 .highlight { background:#fff; }

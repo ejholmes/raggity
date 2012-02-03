@@ -5,42 +5,34 @@ module Raggity
   class << self
     def list_repos
       repos = []
-      Dir.glob("spec/fixtures/repositories/*") do |directory|
+      Dir.glob(File.join(Raggity.configuration.base, "*")) do |directory|
         repos.push(File.basename(directory).gsub('.git', ''))
       end
       repos
     end
   end
 
-  class Repo
-    attr_reader :repo
+  class Repo < Grit::Repo
+    attr_reader :path
+    attr_reader :ref
+    attr_reader :name
 
     def initialize(name, ref)
-      path = File.expand_path("spec/fixtures/repositories/#{name}.git")
-      @ref = ref
-      @repo = Grit::Repo.new path
+      @path = File.join(Raggity.configuration.base, "#{name}.git")
+      @name = name
+      @ref  = ref
+      super @path
     end
 
-    def tree(path)
-      commit = @repo.commits(@ref).first
-      return nil if commit.nil?
-      if path == ''
-        return commit.tree
-      else
-        return commit.tree / path
-      end
+    def object(path)
+      commits(@ref).first.tree / path || commits(@ref).first.tree
     end
 
-    def blob(path)
-      blob = @repo.commits(@ref).first.tree / path
-    end
-
-    def branches
-      @repo.heads
-    end
-
-    def tags
-      @repo.tags
+    # Tries to find a readme in the tree
+    def readme(tree)
+      file = nil
+      tree.blobs.each { |blob| file = blob if blob.name =~ /readme/i }
+      return file
     end
   end
 

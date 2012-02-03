@@ -1,7 +1,5 @@
-<%= erb :branches %>
-<%= erb :breadcrumbs %>
 <div class="bubble">
-    <table class="tree-browser">
+    <table class="tree-browser" cellpadding="0" cellspacing="0">
         <thead>
             <tr class="header">
                 <th></th>
@@ -11,23 +9,30 @@
             </tr>
         </thead>
         <tbody>
-            <% @tree.contents.each do |obj| %>
-            <tr>
-                <td></td>
-                <td>
-                    <% if obj.is_a?(Grit::Blob) %>
-                        <a href="<%= blob_path(obj) %>"><%= obj.name %></a>
-                    <% else %>
-                        <a href="<%= tree_path(obj) %>"><%= obj.name %></a>/
-                    <% end %>
-                </td>
-                <td></td>
-                <td></td>
-            </tr>
+            <% @object.trees.each do |tree| %>
+                <tr>
+                    <td class="icon"><img src="/img/dir.png" /></td>
+                    <td class="content"><a href="<%= path(tree) %>"><%= tree.name %></a></td>
+                    <td class="age"></td>
+                    <td class="message"></td>
+                </tr>
+            <% end %>
+            <% @object.blobs.each do |blob| %>
+                <tr>
+                    <td class="icon"><img src="/img/txt.png" /></td>
+                    <td class="content"><a href="<%= path(blob) %>"><%= blob.name %></a></td>
+                    <td class="age"></td>
+                    <td class="message"></td>
+                </tr>
             <% end %>
         </tbody>
     </table>
 </div>
-<div class="bubble readme">
-<%= readme(@tree.contents) %>
-</div>
+<% readme = @repo.readme(@object) %>
+<% if readme %>
+    <div class="bubble">
+        <div class="file">
+            <%= GitHub::Markup.render readme.name, readme.data %>
+        </div>
+    </div>
+<% end %>

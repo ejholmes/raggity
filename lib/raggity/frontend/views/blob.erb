@@ -1,10 +1,6 @@
-<%= erb :branches %>
-<%= erb :breadcrumbs %>
-<%= @blob.name %> (View <a href="<%= object_path(:type => :raw) %>">raw</a>)
-<% if readme?(@blob.name) %>
-    <%= readme(@blob) %>
-<% else %>
-    <div class="highlight">
-        <pre><%= Pygments.highlight(@blob.data, :lexer => 'ruby') %></pre>
+<%= @object.name %>
+<div class="bubble">
+    <div class="file">
+        <%= Pygments.highlight(@object.data, :filename => @object.name) %>
     </div>
-<% end %>
+</div>

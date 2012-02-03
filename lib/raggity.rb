@@ -1,2 +1,3 @@
 require 'raggity/version'
-require 'raggity/repo.rb'
+require 'raggity/config'
+require 'raggity/repo'
