@@ -7,6 +7,10 @@ module Raggity
   class Application < Sinatra::Base
     dir = File.dirname(File.expand_path(__FILE__))
 
+    Raggity.configure do |config|
+      config.base = File.expand_path("spec/fixtures/repositories")
+    end
+
     # List repositories
     get '/' do
       @repos = Raggity.list_repos
@@ -14,15 +18,11 @@ module Raggity
     end
 
     # Browse a tree or blob
-    get %r{/browse/(.*?)/(blob|tree|raw)/(\w+)/?(.*)} do
+    get %r{/(.*?)/(blob|tree|raw)/(\w+)/?(.*)} do
       @params[:name] = params[:captures][0]
-      @params[:type] = params[:captures][1]
-      @params[:ref]  = params[:captures][2]
-      @params[:path] = params[:captures][3]
-
-      Raggity.configure do |config|
-        config.base = File.expand_path("spec/fixtures/repositories")
-      end
+      @params[:type] = params[:captures][1] || 'tree'
+      @params[:ref]  = params[:captures][2] || 'master'
+      @params[:path] = params[:captures][3] || ''
 
       @repo = Repo.new @params[:name], @params[:ref]
       @object = @repo.object(@params[:path])
@@ -42,7 +42,11 @@ module Raggity
         defaults.merge(options)
         options = defaults
         options[:path] = "#{options[:path]}/#{object.name}"
-        return "/browse/#{options[:name]}/#{options[:type]}/#{options[:ref]}/#{options[:path]}"
+        if object.is_a?(Grit::Repo)
+          return "/#{options[:name]}/tree/#{options[:ref]}"
+        else
+          return "/#{options[:name]}/#{options[:type]}/#{options[:ref]}/#{options[:path]}"
+        end
       end
     end
 

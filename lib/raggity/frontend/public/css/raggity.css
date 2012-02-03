@@ -19,16 +19,18 @@ a:hover {
 }
 
 .bubble {
-    margin: 1em 0;
-}
-
-.bubble {
     padding: 3px;
     background: #eee;
 
     border-radius: 3px;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
+}
+
+.breadcrumbs {
+    font-size: 20px;
+    margin: 5px 0 5px 0;
+    line-height: 28px;
 }
 
 .tree-browser {
@@ -145,6 +147,7 @@ a:hover {
 #readme {
     font-size: 14px;
     line-height: 1.6em;
+    margin-top: 2em;
 }
 
 #readme .file {
