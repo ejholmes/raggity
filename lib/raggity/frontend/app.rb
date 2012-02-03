@@ -36,17 +36,25 @@ module Raggity
     end
 
     helpers do
-      def path(object, options={})
+      def object_path(object, options={})
         defaults = @params.clone
         defaults[:type] = object.is_a?(Grit::Tree) ? 'tree' : 'blob'
         defaults.merge(options)
         options = defaults
         options[:path] = "#{options[:path]}/#{object.name}"
-        if object.is_a?(Grit::Repo)
-          return "/#{options[:name]}/tree/#{options[:ref]}"
-        else
-          return "/#{options[:name]}/#{options[:type]}/#{options[:ref]}/#{options[:path]}"
-        end
+        return "/#{options[:name]}/#{options[:type]}/#{options[:ref]}/#{options[:path]}"
+      end
+
+      def repo_path(repo, options={})
+        options = {
+          :name => @params[:name],
+          :ref  => @params[:ref]
+        }.merge(options)
+        return "/#{options[:name]}/tree/#{options[:ref]}"
+      end
+
+      def clone_url
+        Raggity.configuration.clone_template.gsub('{{name}}', @repo.name)
       end
     end
 

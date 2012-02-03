@@ -1,5 +1,5 @@
 <div class="breadcrumbs">
-    <strong><a href="<%= path(@repo) %>"><%= @repo.name %></a></strong> /
+    <strong><a href="<%= repo_path(@repo) %>"><%= @repo.name %></a></strong> /
 </div>
 <div class="bubble">
     <table class="tree-browser" cellpadding="0" cellspacing="0">
@@ -15,7 +15,7 @@
             <% @object.trees.each do |tree| %>
                 <tr>
                     <td class="icon"><img src="/img/dir.png" /></td>
-                    <td class="content"><a href="<%= path(tree) %>"><%= tree.name %></a></td>
+                    <td class="content"><a href="<%= object_path(tree) %>"><%= tree.name %></a></td>
                     <td class="age"></td>
                     <td class="message"></td>
                 </tr>
@@ -23,7 +23,7 @@
             <% @object.blobs.each do |blob| %>
                 <tr>
                     <td class="icon"><img src="/img/txt.png" /></td>
-                    <td class="content"><a href="<%= path(blob) %>"><%= blob.name %></a></td>
+                    <td class="content"><a href="<%= object_path(blob) %>"><%= blob.name %></a></td>
                     <td class="age"></td>
                     <td class="message"></td>
                 </tr>
