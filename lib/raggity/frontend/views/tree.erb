@@ -30,7 +30,8 @@
 </div>
 <% readme = @repo.readme(@object) %>
 <% if readme %>
-    <div class="bubble">
+    <div id="readme" class="bubble">
+        <span class="name"><span class="icon"></span><%= readme.name %></span>
         <div class="file">
             <%= GitHub::Markup.render readme.name, readme.data %>
         </div>
